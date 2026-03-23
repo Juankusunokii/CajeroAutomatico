@@ -8,7 +8,7 @@ import service.FileManager;
 import java.util.*;
 import java.io.*;
 
-public class Main {
+public class main {
     
     private static Scanner scanner = new Scanner(System.in);
     private static FileManager fm = new FileManager("data");
