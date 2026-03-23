@@ -1,0 +1,2 @@
+ADMIN|Administrador|000|000|admin123
+VALORES|Empresa Valores|000|000|valores123
