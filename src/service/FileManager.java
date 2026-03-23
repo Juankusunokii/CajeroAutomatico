@@ -19,7 +19,8 @@ public class FileManager {
         new File(rutaBase).mkdirs();
     }
 
-    // Usuarios
+    // ==================== USUARIOS ====================
+    
     public List<Usuario> cargarUsuarios() {
         List<Usuario> lista = new ArrayList<>();
         File file = new File(rutaBase + "/usuarios.txt");
@@ -49,7 +50,8 @@ public class FileManager {
         }
     }
 
-    // Cuentas
+    // ==================== CUENTAS ====================
+    
     public List<Cuenta> cargarCuentas() {
         List<Cuenta> lista = new ArrayList<>();
         File file = new File(rutaBase + "/cuentas.txt");
@@ -79,7 +81,8 @@ public class FileManager {
         }
     }
 
-    // Tarjetas
+    // ==================== TARJETAS (GUARDA PIN REAL) ====================
+    
     public List<Tarjeta> cargarTarjetas() {
         List<Tarjeta> lista = new ArrayList<>();
         File file = new File(rutaBase + "/tarjetas.txt");
@@ -90,8 +93,11 @@ public class FileManager {
             while ((linea = br.readLine()) != null) {
                 String[] parts = linea.split("\\|");
                 if (parts.length >= 5) {
+                    // parts[0]=numero, parts[1]=numCuenta, parts[2]=pin REAL, parts[3]=rol, parts[4]=activa
                     Tarjeta t = new Tarjeta(parts[0], parts[1], parts[2], parts[3]);
-                    if (!Boolean.parseBoolean(parts[4])) t.bloquear();
+                    if (!Boolean.parseBoolean(parts[4])) {
+                        t.bloquear();
+                    }
                     lista.add(t);
                 }
             }
@@ -104,14 +110,16 @@ public class FileManager {
     public void guardarTarjetas(List<Tarjeta> tarjetas) {
         try (PrintWriter pw = new PrintWriter(new FileWriter(rutaBase + "/tarjetas.txt"))) {
             for (Tarjeta t : tarjetas) {
-                pw.println(t.getNumero() + "|" + t.getNumCuenta() + "|" + "****" + "|" + t.getRol() + "|" + t.isActiva());
+                // Guardar el PIN REAL (sin asteriscos)
+                pw.println(t.getNumero() + "|" + t.getNumCuenta() + "|" + t.getPin() + "|" + t.getRol() + "|" + t.isActiva());
             }
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    // Movimientos
+    // ==================== MOVIMIENTOS ====================
+    
     public List<Movimiento> cargarMovimientos() {
         List<Movimiento> lista = new ArrayList<>();
         File file = new File(rutaBase + "/movimientos.txt");

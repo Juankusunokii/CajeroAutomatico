@@ -6,7 +6,7 @@ public class Tarjeta {
     private String pin;
     private boolean activa;
     private int intentosFallidos;
-    private String rol; // CLIENTE, VALORES, ADMIN
+    private String rol;
 
     public Tarjeta(String numero, String numCuenta, String pin, String rol) {
         this.numero = numero;
@@ -43,6 +43,7 @@ public class Tarjeta {
     // Getters
     public String getNumero() { return numero; }
     public String getNumCuenta() { return numCuenta; }
+    public String getPin() { return pin; }  // NUEVO: para guardar en archivo
     public boolean isActiva() { return activa; }
     public int getIntentosFallidos() { return intentosFallidos; }
     public String getRol() { return rol; }
