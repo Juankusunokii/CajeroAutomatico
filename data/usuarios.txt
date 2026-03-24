@@ -1,2 +1,4 @@
 ADMIN|Administrador|000|000|admin123
 VALORES|Empresa Valores|000|000|valores123
+C001|Mauricio Cepeda|1007770285|3222365949|
+C002|Andrés Cepeda Villanueva|1007770285|3222365949|

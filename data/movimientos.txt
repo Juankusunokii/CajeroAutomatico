@@ -1,0 +1,4 @@
+M1|ABASTECIMIENTO|||1000000.0|Abastecimiento por Valores
+M2|CONSIGNACION||1001|500000.0|Consignacion sin tarjeta en cajero
+M3|RETIRO|1001||500000.0|Retiro en cajero
+M4|TRANSFERENCIA|1001|1002|1000000.0|Transferencia a 1002

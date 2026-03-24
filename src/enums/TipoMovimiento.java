@@ -1,6 +1,6 @@
 package enums;
 
-public class TipoMovimiento {
+public enum TipoMovimiento {
     RETIRO,
     CONSIGNACION,
     TRANSFERENCIA,
